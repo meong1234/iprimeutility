@@ -1,0 +1,58 @@
+<!-- start: SEARCH FORM -->
+<div class="search-form">
+	<a class="s-open" href="#">
+		<i class="ti-search"></i>
+	</a>
+	<form class="navbar-form" role="search">
+		<a class="s-remove" href="#" ng-toggle-class="search-open" target=".navbar-form">
+			<i class="ti-close"></i>
+		</a>
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="{{ 'sidebar.search.PLACEHOLDER' | translate }}">
+			<button class="btn search-button" type="submit">
+				<i class="ti-search"></i>
+			</button>
+		</div>
+	</form>
+</div>
+<!-- end: SEARCH FORM -->
+<!-- start: MAIN NAVIGATION MENU -->
+<div class="navbar-title">
+	<span translate="sidebar.heading.NAVIGATION">Main Navigation</span>
+</div>
+
+<script type="text/ng-template" id="menu-vm-recursive-tpl">
+	<li ng-repeat="item in subItems" ui-sref-active="active" ng-class="{'open':$state.includes('{{item.options}}') }">
+		<a ng-if="item.children.length" href="javascript:void(0)" ng-include="'menu-vm-link-tpl'"></a>
+		<a ng-if="!item.children.length" ui-sref="{{item.options}}" ng-include="'menu-vm-link-tpl'"></a>
+
+		<ul class="sub-menu"  ng-if="item.children.length" ng-init="subItems = item.children" ng-include="'menu-vm-recursive-tpl'"></ul>
+	</li>
+</script>
+
+<script type="text/ng-template" id="menu-vm-link-tpl">
+	<div class="item-content">
+		<div class="item-media">
+			<i ng-if="item.icon" class="{{item.icon}}"></i>
+		</div>
+		<div class="item-inner">
+			<span class="title" translate="sidebar.nav.{{item.options}}"></span> <i ng-if="item.children.length" class="icon-arrow"></i>
+		</div>
+	</div>
+</script>
+
+<script type="text/ng-template" id="menu-vm-tpl">
+	<li ng-repeat="item in vm.allMenu" ng-class="{'active open':$state.includes('{{item.options}}') }" >
+		<a ng-if="item.children.length" href="javascript:void(0)" ng-include="'menu-vm-link-tpl'"></a>
+		<a ng-if="!item.children.length" ui-sref="{{item.options}}" ng-include="'menu-vm-link-tpl'"></a>
+
+		<ul class="sub-menu" ng-if="item.children.length" ng-init="subItems = item.children" ng-include="'menu-vm-recursive-tpl'"></ul>
+	</li>
+</script>
+
+
+<ul  class="main-navigation-menu" ng-include="'menu-vm-tpl'">
+</ul>
+		<!--<collection collection='menu.children'></collection>
+    </li>
+</ul>

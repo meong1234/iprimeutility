@@ -1,0 +1,236 @@
+{
+  "dashboard": {
+    "WELCOME": "Welcome to {{appName}}"
+  },
+  "login": {
+    "message1": "Sign in to your account",
+    "message2": "Please enter your name and password to log in.",
+    "message3": "Keep me signed in"
+  },
+  "topbar": {
+    "messages": {
+      "MAIN": "Messages",
+      "HEADER": "Unread messages",
+      "SEEALL": "See All"
+    },
+
+    "activities": {
+      "MAIN": "Activities",
+      "HEADER": "You have new notifications",
+      "SEEALL": "See All"
+    },
+    "user": {
+      "PROFILE": "My Profile",
+      "CALENDAR" : "My Calendar",
+      "MESSAGES" : "My Messages",
+      "LOCKSCREEN" : "Lock Screen",
+      "LOGOUT" : "Log Out"
+    }
+  },
+  "sidebar": {
+    "heading": {
+      "NAVIGATION": "Main Navigation",
+      "FEATURES": "Core Features",
+      "DOCUMENTATION": "Documentation"
+    },
+    "search": {
+      "PLACEHOLDER": "Search..."
+    },
+    "nav": {
+      "app.dashboard" : "Dashboard",
+      "app.ereport" : "EReports",
+      "app.ereport.group.list" : "Report Group",
+      "app.ereport.item.list" : "Report Item",
+      "app.ereport.item.execute" : "Execute Report",
+      "app.system" : "System",
+      "app.system.security" : "Security",
+      "app.system.security.user.list" : "Users",
+      "app.system.security.role.list" : "Role",
+      "app.system.security.permission.list" : "Permission",
+      "app.system.security.menu.list" : "Menu"
+    }
+  },
+  "Modules": {
+    "EReport": {
+      "group_page": {
+        "list": {
+          "page_title": "Report Group List",
+          "page_desc": "Page for view all Report Group",
+          "panel_header": "Daftar Report Group"
+        },
+        "edit": {
+          "page_title": "Report Group Edit",
+          "page_desc": "Page for add or edit Report Group",
+          "panel_header": "Edit Report Group"
+        },
+        "page_title": "Report Group",
+        "fields": {
+          "field1": "Name",
+          "field2": "Description"
+        }
+      },
+      "item_page": {
+        "list": {
+          "page_title": "Report Item List",
+          "page_desc": "Page for view all Report Item",
+          "panel_header": "Daftar Report Group"
+        },
+        "edit": {
+          "page_title": "Report Item Edit",
+          "page_desc": "Page for add or edit Report Item",
+          "panel_header": "Edit Report Item",
+		  "panel_header_sql": "SQL Query",
+          "panel_header_parameter": "Parameter List"
+        },
+        "executor": {
+          "page_title": "Report Execute",
+          "page_desc": "Page for view report",
+          "panel_header": "Execute Report",
+          "panel_Result": "Execute Result"
+        },
+        "page_title": "Report Item",
+        "fields": {
+          "field1": "Name",
+          "field2": "Description",
+          "field3": "Group",
+          "field4": "Parameter",
+          "field5": "Name",
+          "field6": "Type Data",
+          "field7": "Column Title",
+          "field8": "Column Group",
+          "field9": "Column Visible",
+          "field10": "Order",
+          "field11": "Item"
+        }
+      }
+    },
+    "System": {
+      "user_page": {
+        "list": {
+          "page_title": "Users List",
+          "page_desc": "Page for view all user",
+          "panel_header": "Daftar User"
+        },
+        "edit": {
+          "page_title": "Users Edit",
+          "page_desc": "Page for add or edit user",
+          "panel_header": "Edit User"
+        },
+        "page_title": "Users",
+        "fields":  {
+          "field1": "Username",
+          "field2": "Fullname",
+          "field3": "Active",
+          "field4": "Role",
+          "field5": "Password",
+          "field6": "Email",
+          "field7": "Language"
+        }
+      },
+      "role_page": {
+        "list": {
+          "page_title": "Role List",
+          "page_desc": "Page for view all role",
+          "panel_header": "Daftar Role"
+        },
+        "edit": {
+          "page_title": "Role Edit",
+          "page_desc": "Page for add or edit role",
+          "panel_header": "Edit Role",
+          "panel_header_permission": "Permission List",
+          "panel_header_menu": "Menu List"
+        },
+        "page_title": "Roles",
+        "fields":  {
+          "field1": "Name",
+          "field2": "Description"
+        },
+        "confirmation_message": {
+          "permission_header": "Add unselected permission to role ",
+          "permission_body": "Choose permission",
+          "menu_header": "Add unselected menu to role ",
+          "menu_body": "Choose menu"
+        }
+      },
+      "permission_page": {
+        "list": {
+          "page_title": "Permission List",
+          "page_desc": "Page for view all permission",
+          "panel_header": "Daftar Permission"
+        },
+        "edit": {
+          "page_title": "Permission Edit",
+          "page_desc": "Page for add or edit permission",
+          "panel_header": "Edit Permission"
+        },
+        "fields":  {
+          "field1": "Name",
+          "field2": "Value"
+        }
+      },
+      "menu_page": {
+        "list": {
+          "page_title": "Menu List",
+          "page_desc": "Page for view all menu",
+          "panel_header": "Daftar Menu"
+        },
+        "edit": {
+          "page_title": "Menu Edit",
+          "page_desc": "Page for add or edit menu",
+          "panel_header": "Edit Menu"
+        },
+        "fields":  {
+          "field1": "Label",
+          "field2": "Options",
+          "field3": "Icon",
+          "field4": "Order",
+          "field5": "Parent"
+        }
+      }
+    }
+  },
+  "table": {
+    "command": "Command",
+    "btn_add": "Add New",
+    "btn_refresh": "Refresh",
+    "btn_excel": "Export Excel",
+    "btn_pdf": "Export Pdf",
+    "total_row": "Total Row",
+    "change": "Edit",
+    "delete": "Del",
+    "createLike": "Copy",
+    "operators" : {
+      "contains": "Contains"
+    }
+  },
+  "form": {
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "reset": "Reset"
+  },
+  "error_message": {
+    "required": "required field must not be blank",
+    "minlength": "Too short!",
+    "maxlength": "Too long!",
+    "pattern_username": "format penulisan tanpa spasi. Panjang minimal 5 dan maximal 50 karakter",
+    "pattern_password": "format penulisan tanpa spasi. Panjang minimal 6 dan maximal 50 karakter dan setidaknya 1 number, 1 huruf besar, 1 huruf kecil",
+    "unique": "already used",
+    "email": "email format not valid"
+  },
+  "confirmation_message": {
+    "header": "Confirmation",
+    "delete": "Are you sure delete this record",
+    "delete_info": "succes deleted!",
+    "save_info": "data saved!",
+    "cancel": "Are you sure to cancel  ?",
+    "reset": "Are you sure to reset ?",
+    "btn_no": "No",
+    "btn_yes": "Yes"
+  },
+  "footer": {
+    "copyright": {
+      "MAIN": "Copyright",
+      "MESSAGE": "All rights reserved"
+    }
+  }
+}

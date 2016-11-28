@@ -1,0 +1,131 @@
+<div class="container-fluid container-fullw bg-white">
+
+    <div class="panel panel-white no-radius">
+        <div class="panel-heading border-light">
+            <i class="fa fa-external-link-square"></i>
+            <span class="title" translate="Modules.System.role_page.edit.panel_header"> </span>
+        </div>
+        <div class="panel-body">
+            <form role="form" name="formEdit" class="form-horizontal">
+
+                <div class="form-group" ng-class="{'has-error':formEdit.name.$dirty && formEdit.name.$invalid, 'has-success':formEdit.name.$valid}">
+                    <label class="col-sm-2 control-label"  for="name">
+                        <span class="title" translate="Modules.System.role_page.fields.field1"> </span> : <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text"
+                               name="name"
+                               id="name"
+                               placeholder="Enter text"
+                               class="form-control underline"
+                               ng-model="vm.currentData.name"
+                               ng-maxlength="50"
+                               required
+                                />
+                        <span class="error text-small block" ng-if="formEdit.name.$error.required" translate="error_message.required"></span>
+                        <span class="error text-small block" ng-if="formEdit.name.$error.maxlength" translate="error_message.maxlength"></span>
+                    </div>
+                </div>
+
+                <div class="form-group" ng-class="{'has-error':formEdit.description.$dirty && formEdit.description.$invalid, 'has-success':formEdit.description.$valid}">
+                    <label class="col-sm-2 control-label"  for="description">
+                        <span class="title" translate="Modules.System.role_page.fields.field2"> </span> : <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text"
+                               name="description"
+                               id="description"
+                               placeholder="Enter text"
+                               class="form-control underline"
+                               ng-model="vm.currentData.description"
+                               ng-maxlength="50"
+                               required
+                                />
+                        <span class="error text-small block" ng-if="formEdit.description.$error.required" translate="error_message.required"></span>
+                        <span class="error text-small block" ng-if="formEdit.description.$error.maxlength" translate="error_message.maxlength"></span>
+                    </div>
+                </div>
+
+
+                <div class="panel panel-white no-radius">
+                    <div class="panel-heading border-light">
+                        <i class="fa fa-external-link-square"></i>
+                        <span class="title" translate="Modules.System.role_page.edit.panel_header_permission"> </span>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="row">
+                            <div class="col-md-12 space20">
+                                <a class="btn btn-red add-row" ng-click="vm.tambahPermission()">
+                                    <span class="title" translate="table.btn_add"></span> <i class="fa fa-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="table-responsive">
+                                <table ng-table="vm.tablePermission" class="table table-bordered table-striped table-scrollable">
+                                    <tr ng-repeat="row in $data track by row.id">
+                                        <td title="vm.translate('Modules.System.permission_page.fields.field1')" sortable="'label'">{{row.label}}</td>
+                                        <td title="vm.translate('Modules.System.permission_page.fields.field2')" sortable="'value'">{{row.value}}</td>
+                                        <td align="center" title="Action">
+                                            <a class="btn btn-xs red-intense" ng-click="vm.removeSelectedPermission(row)">  <i class="fa fa-ban"></i> Hapus </a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-white no-radius">
+                    <div class="panel-heading border-light">
+                        <i class="fa fa-external-link-square"></i>
+                        <span class="title" translate="Modules.System.role_page.edit.panel_header_menu"> </span>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="row">
+                            <div class="col-md-12 space20">
+                                <a class="btn btn-red add-row" ng-click="vm.tambahMenu()">
+                                    <span class="title" translate="table.btn_add"></span> <i class="fa fa-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="table-responsive">
+                                <table ng-table="vm.tableMenu" class="table table-bordered table-striped table-scrollable">
+                                    <tr ng-repeat="row in $data track by row.id">
+                                        <td title="vm.translate('Modules.System.menu_page.fields.field1')" sortable="'label'">{{row.label}}</td>
+                                        <td title="vm.translate('Modules.System.menu_page.fields.field2')" sortable="'options'">{{row.options}}</td>
+                                        <td title="vm.translate('Modules.System.menu_page.fields.field4')" sortable="'order'">{{row.order}}</td>
+                                        <td align="center" title="Action">
+                                            <a class="btn btn-xs red-intense" ng-click="vm.removeSelectedMenu(row)">  <i class="fa fa-ban"></i> Hapus </a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="form-actions noborder col-sm-offset-2 col-sm-10">
+                    <button type="button" class="btn blue" ng-click="vm.simpan()" ng-disabled="vm.isClean|| formEdit.$invalid">
+                        <span class="title" translate="form.submit"> </span>
+                    </button>
+                    <button type="button" class="btn red" ng-click="vm.cancel()">
+                        <span class="title" translate="form.cancel"> </span>
+                    </button>
+                    <button ng-if="vm.isEdit" type="button" class="btn default" ng-click="vm.baru()" ng-disabled="vm.isClean">
+                        <span class="title" translate="form.reset"> </span>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>

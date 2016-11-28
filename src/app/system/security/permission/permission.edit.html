@@ -1,0 +1,70 @@
+<div class="container-fluid container-fullw bg-white">
+
+    <div class="panel panel-white no-radius">
+        <div class="panel-heading border-light">
+            <i class="fa fa-external-link-square"></i>
+            <span class="title" translate="Modules.System.permission_page.edit.panel_header"> </span>
+        </div>
+        <div class="panel-body">
+            <form role="form" name="formEdit" class="form-horizontal">
+
+                <div class="form-group" ng-class="{'has-error':formEdit.label.$dirty && formEdit.label.$invalid, 'has-success':formEdit.label.$valid}">
+                    <label class="col-sm-2 control-label"  for="label">
+                        <span class="title" translate="Modules.System.permission_page.fields.field1"> </span> : <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text"
+                               name="label"
+                               id="label"
+                               placeholder="Enter text"
+                               class="form-control underline"
+                               ng-model="vm.currentData.label"
+                               ng-maxlength="50"
+                               ng-minlength="3"
+                               required
+                                />
+                        <span class="error text-small block" ng-if="formEdit.label.$error.required" translate="error_message.required"></span>
+                        <span class="error text-small block" ng-if="formEdit.label.$error.maxlength" translate="error_message.maxlength"></span>
+                        <span class="error text-small block" ng-if="formEdit.label.$error.minlength" translate="error_message.minlength"></span>
+                    </div>
+                </div>
+
+                <div class="form-group" ng-class="{'has-error':formEdit.value.$dirty && formEdit.value.$invalid, 'has-success':formEdit.value.$valid}">
+                    <label class="col-sm-2 control-label"  for="value">
+                        <span class="title" translate="Modules.System.permission_page.fields.field2"> </span> : <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text"
+                               name="value"
+                               id="value"
+                               placeholder="Enter text"
+                               class="form-control underline"
+                               ng-model="vm.currentData.value"
+                               ng-maxlength="50"
+                               ng-minlength="3"
+                               required
+                                />
+                        <span class="error text-small block" ng-if="formEdit.value.$error.required" translate="error_message.required"></span>
+                        <span class="error text-small block" ng-if="formEdit.value.$error.maxlength" translate="error_message.maxlength"></span>
+                        <span class="error text-small block" ng-if="formEdit.value.$error.minlength" translate="error_message.minlength"></span>
+                    </div>
+                </div>
+
+
+                <div class="form-actions noborder col-sm-offset-2 col-sm-10">
+                    <button type="button" class="btn blue" ng-click="vm.simpan()" ng-disabled="vm.isClean|| formEdit.$invalid">
+                        <span class="title" translate="form.submit"> </span>
+                    </button>
+                    <button type="button" class="btn red" ng-click="vm.cancel()">
+                        <span class="title" translate="form.cancel"> </span>
+                    </button>
+                    <button ng-if="vm.isEdit" type="button" class="btn default" ng-click="vm.baru()" ng-disabled="vm.isClean">
+                        <span class="title" translate="form.reset"> </span>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,14 @@
+<script id="toolbartemplate" type="text/x-kendo-template">
+
+    <a  class="k-button k-button-icontext" data-ng-click="vm.addrow()" ><span class="k-icon k-add"></span><span translate="table.btn_add"></span></a>
+    <a  class="k-button k-button-icontext" data-ng-click="vm.refreshGrid()" ><span class="k-icon k-refresh"></span><span translate="table.btn_refresh"></span></a>
+    <a  class="k-button k-button-icontext k-grid-excel" data-ng-click="vm.exportExcel()" ><span class="k-icon k-i-excel"></span><span translate="table.btn_excel"></span></a>
+    <a  class="k-button k-button-icontext k-grid-pdf" data-ng-click="vm.exportPdf()" ><span class="k-icon k-i-pdf"></span><span translate="table.btn_pdf"></span></a>
+</script>
+
+<script id="commandtemplate" type="text/x-kendo-template">
+    <a  class="k-button k-button-icontext" data-ng-click="vm.hapus(dataItem)" ><span class="k-icon k-delete"></span><span translate="table.delete"></span></a>
+    <a  class="k-button k-button-icontext" data-ng-click="vm.addrow(dataItem.id)" ><span class="k-icon k-edit"></span><span translate="table.change"></span></a>
+</script>
+
+<div ui-view class="fade-in-up"></div>

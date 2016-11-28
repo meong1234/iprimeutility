@@ -1,0 +1,36 @@
+<div class="modal-header">
+    <h3>{{modalOptions.headerText}}</h3>
+</div>
+<div class="modal-body">
+
+    <div class="panel panel-transparent no-radius">
+        <div class="panel-heading border-light">
+            <i class="fa fa-external-link-square"></i>
+            {{modalOptions.bodyText}}
+        </div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="table-responsive">
+                    <table ng-table="tableParams" class="table table-bordered table-striped table-scrollable">
+                        <tr ng-repeat="row in $data track by row.id">
+                            <td width="30" style="text-align: left"
+                                header="'app/iprimeUtility/misc/modal_checkbox.html'">
+                                <input type="checkbox" ng-model="row.checked" />
+                            </td>
+                            <td title="translate('Modules.System.permission_page.fields.field1')" sortable="'label'">{{row.label}}</td>
+                            <td title="translate('Modules.System.permission_page.fields.field2')" sortable="'value'">{{row.value}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn"
+            data-ng-click="modalOptions.close()">{{modalOptions.closeButtonText}}</button>
+    <button class="btn btn-primary"
+            data-ng-click="modalOptions.ok();">{{modalOptions.actionButtonText}}</button>
+</div>

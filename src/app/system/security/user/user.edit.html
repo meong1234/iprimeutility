@@ -1,0 +1,138 @@
+<div class="container-fluid container-fullw bg-white">
+
+        <div class="panel panel-white no-radius">
+            <div class="panel-heading border-light">
+                <i class="fa fa-external-link-square"></i>
+                <span class="title" translate="Modules.System.user_page.edit.panel_header"> </span>
+            </div>
+            <div class="panel-body">
+                <form role="form" name="formEdit" class="form-horizontal">
+
+                    <div class="form-group" ng-class="{'has-error':formEdit.fullname.$dirty && formEdit.fullname.$invalid, 'has-success':formEdit.fullname.$valid}">
+                        <label class="col-sm-2 control-label"  for="fullname">
+                            <span class="title" translate="Modules.System.user_page.fields.field2"> </span> : <span class="symbol required"></span>
+                        </label>
+                        <div class="col-sm-10">
+                            <input type="text"
+                                   name="fullname"
+                                   id="fullname"
+                                   placeholder="Enter text"
+                                   class="form-control underline"
+                                   ng-model="vm.currentUser.fullname"
+                                   ng-minlength="3"
+                                   ng-maxlength="50"
+                                   required
+                            />
+                            <span class="error text-small block" ng-if="formEdit.fullname.$error.required" translate="error_message.required"></span>
+                            <span class="error text-small block" ng-if="formEdit.fullname.$error.minlength" translate="error_message.minlength"></span>
+                            <span class="error text-small block" ng-if="formEdit.fullname.$error.maxlength" translate="error_message.maxlength"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group" ng-class="{'has-error':formEdit.username.$dirty && formEdit.username.$invalid, 'has-success':formEdit.username.$valid}">
+                        <label class="col-sm-2 control-label"  for="username">
+                            <span class="title" translate="Modules.System.user_page.fields.field1"> </span> : <span class="symbol required"></span>
+                        </label>
+                        <div class="col-sm-10">
+                            <input type="text"
+                                   name="username"
+                                   id="username"
+                                   placeholder="Enter text"
+                                   class="form-control underline"
+                                   data-ng-model="vm.currentUser.username"
+                                   ng-pattern="/^[a-z0-9_-]{5,15}$/"
+                                   data-wc-unique="{key: 'users', property: 'username'}"
+                                   required
+                                    />
+                            <span class="error text-small block" ng-if="formEdit.username.$error.required" translate="error_message.required"></span>
+                            <span class="error text-small block" ng-if="formEdit.username.$error.pattern" translate="error_message.pattern_username"></span>
+                            <span class="error text-small block" ng-if="formEdit.username.$error.unique" translate="error_message.unique"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" ng-class="{'has-error':formEdit.email.$dirty && formEdit.email.$invalid, 'has-success':formEdit.email.$valid}">
+                        <label class="col-sm-2 control-label"  for="email">
+                            <span class="title" translate="Modules.System.user_page.fields.field1"> </span> : <span class="symbol required"></span>
+                        </label>
+                        <div class="col-sm-10">
+                            <input type="email"
+                                   name="email"
+                                   id="email"
+                                   placeholder="Enter text"
+                                   class="form-control underline"
+                                   data-ng-model="vm.currentUser.email"
+                                   data-wc-unique="{key: 'users', property: 'email'}"
+                                   required
+                                    />
+                            <span class="error text-small block" ng-if="formEdit.email.$error.required" translate="error_message.required"></span>
+                            <span class="error text-small block" ng-if="formEdit.email.$error.email" translate="error_message.email"></span>
+                            <span class="error text-small block" ng-if="formEdit.email.$error.unique" translate="error_message.unique"></span>
+                        </div>
+                    </div>
+
+                    <div ng-if="!vm.isEdit" class="form-group" ng-class="{'has-error':formEdit.password.$dirty && formEdit.password.$invalid, 'has-success':formEdit.password.$valid}">
+                        <label class="col-sm-2 control-label"  for="password">
+                            <span class="title" translate="Modules.System.user_page.fields.field5"> </span> : <span class="symbol required"></span>
+                        </label>
+                        <div class="col-sm-10">
+                            <input type="password"
+                                   name="password"
+                                   id="password"
+                                   placeholder="Enter text"
+                                   class="form-control underline"
+                                   ng-model="vm.currentUser.password"
+                                   ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/"
+                                   ng-minlength="6" ng-maxlength="50"
+                                   required
+                                    />
+                            <span class="error text-small block" ng-if="formEdit.password.$error.required" translate="error_message.required"></span>
+                            <span class="error text-small block"
+                                  ng-if="(!formEdit.password.$error.minlength || !formEdit.password.$error.maxlength)
+                                   && formEdit.password.$error.pattern" translate="error_message.pattern_password"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group control-group">
+                        <label class="col-sm-2 control-label" for="active">
+                            <span class="title" translate="Modules.System.user_page.fields.field3"> </span> : <span class="symbol required"></span>
+                        </label>
+                        <div class="col-sm-10">
+                            <input type="checkbox" id="active" name="active"  ng-model="vm.currentUser.active">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group control-group" ng-class="{'has-error':formEdit.role.$dirty && formEdit.role.$invalid, 'has-success':formEdit.role.$valid}">
+                        <label class="col-sm-2 control-label">
+                            <span class="title" translate="Modules.System.user_page.fields.field4"> </span> : <span class="symbol required"></span>
+                        </label>
+                        <div class="col-sm-10">
+                            <ui-select ng-model="vm.currentUser.roleId" name="role" id="role" theme="bootstrap" required>
+                                <ui-select-match placeholder="Select in the list...">
+                                    {{$select.selected.name}}
+                                </ui-select-match>
+                                <ui-select-choices repeat="role.id as role in vm.allRoles | filter: $select.search">
+                                    <div ng-bind-html="role.name | highlight: $select.search"></div>
+                                </ui-select-choices>
+                            </ui-select>
+                        </div>
+                    </div>
+
+
+                    <div class="form-actions noborder col-sm-offset-2 col-sm-10">
+                        <button type="button" class="btn blue" ng-click="vm.simpan()" ng-disabled="vm.isClean|| formEdit.$invalid">
+                            <span class="title" translate="form.submit"> </span>
+                        </button>
+                        <button type="button" class="btn red" ng-click="vm.cancel()">
+                            <span class="title" translate="form.cancel"> </span>
+                        </button>
+                        <button ng-if="vm.isEdit" type="button" class="btn default" ng-click="vm.baru()" ng-disabled="vm.isClean">
+                            <span class="title" translate="form.reset"> </span>
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+</div>

@@ -1,0 +1,20 @@
+
+<!-- sidebar -->
+<div class="sidebar app-aside" id="sidebar" toggleable parent-active-class="app-slide-off" >
+	<div perfect-scrollbar wheel-propagation="true" suppress-scroll-x="true" class="sidebar-container">
+		<div data-ng-include=" 'app/core/view/sidebar.html' "></div>
+	</div>
+</div>
+<!-- / sidebar -->
+<div class="app-content" ng-class="{loading: loading}">
+	<!-- top navbar -->
+	<header data-ng-include=" 'app/core/view/top-navbar.html' " class="navbar navbar-default navbar-static-top"></header>
+	<!-- / top navbar -->
+	<!-- main content -->
+	<div data-ng-include=" 'app/core/view/main-content.html' " class="main-content" ></div>
+	<!-- / main content -->
+</div>
+<!-- footer -->
+<footer data-ng-include=" 'app/core/view/footer.html' "></footer>
+<!-- / footer -->
+

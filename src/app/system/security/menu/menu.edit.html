@@ -1,0 +1,122 @@
+<div class="container-fluid container-fullw bg-white">
+
+    <div class="panel panel-white no-radius">
+        <div class="panel-heading border-light">
+            <i class="fa fa-external-link-square"></i>
+            <span class="title" translate="Modules.System.menu_page.edit.panel_header"> </span>
+        </div>
+        <div class="panel-body">
+            <form role="form" name="formEdit" class="form-horizontal">
+
+                <div class="form-group" ng-class="{'has-error':formEdit.label.$dirty && formEdit.label.$invalid, 'has-success':formEdit.label.$valid}">
+                    <label class="col-sm-2 control-label"  for="label">
+                        <span class="title" translate="Modules.System.menu_page.fields.field1"> </span> : <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text"
+                               name="label"
+                               id="label"
+                               placeholder="Enter text"
+                               class="form-control underline"
+                               ng-model="vm.currentData.label"
+                               ng-maxlength="50"
+                               ng-minlength="3"
+                               required
+                                />
+                        <span class="error text-small block" ng-if="formEdit.label.$error.required" translate="error_message.required"></span>
+                        <span class="error text-small block" ng-if="formEdit.label.$error.maxlength" translate="error_message.maxlength"></span>
+                        <span class="error text-small block" ng-if="formEdit.label.$error.minlength" translate="error_message.minlength"></span>
+                    </div>
+                </div>
+
+                <div class="form-group" ng-class="{'has-error':formEdit.options.$dirty && formEdit.options.$invalid, 'has-success':formEdit.options.$valid}">
+                    <label class="col-sm-2 control-label"  for="options">
+                        <span class="title" translate="Modules.System.menu_page.fields.field2"> </span> : <span class="symbol required"></span>
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text"
+                               name="options"
+                               id="options"
+                               placeholder="Enter text"
+                               class="form-control underline"
+                               ng-model="vm.currentData.options"
+                               ng-maxlength="50"
+                               ng-minlength="3"
+                               required
+                                />
+                        <span class="error text-small block" ng-if="formEdit.options.$error.required" translate="error_message.required"></span>
+                        <span class="error text-small block" ng-if="formEdit.options.$error.maxlength" translate="error_message.maxlength"></span>
+                        <span class="error text-small block" ng-if="formEdit.options.$error.minlength" translate="error_message.minlength"></span>
+                    </div>
+                </div>
+
+                <div class="form-group control-group">
+                    <label class="col-sm-2 control-label">
+                        <span class="title" translate="Modules.System.menu_page.fields.field3"> </span> :
+                    </label>
+                    <div class="col-sm-10">
+                        <ui-select ng-model="vm.currentData.icon" id="menu" theme="bootstrap" required>
+                            <ui-select-match placeholder="Select in the list...">
+                                {{$select.selected}}
+                            </ui-select-match>
+                            <ui-select-choices group-by="'menu'" repeat="menu as menu in vm.icons | filter: $select.search">
+                                <div ng-class="menu"></div>
+                                <span ng-bind-html="menu | highlight: $select.search"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+
+
+                <div class="form-group" ng-class="{'has-error':formEdit.order.$dirty && formEdit.order.$invalid, 'has-success':formEdit.order.$valid}">
+                    <label class="col-sm-2 control-label"  for="order">
+                        <span class="title" translate="Modules.System.menu_page.fields.field4"> </span> :
+                    </label>
+                    <div class="col-sm-10">
+                        <input type="text"
+                               name="order"
+                               id="order"
+                               class="form-control underline"
+                               ng-model="vm.currentData.order"
+                               touchspin data-min="0" data-max="100" data-step="1"
+                               required
+                                />
+
+                        <span class="error text-small block" ng-if="formEdit.Icon.$error.required" translate="error_message.required"></span>
+                    </div>
+                </div>
+
+                <div class="form-group control-group">
+                    <label class="col-sm-2 control-label">
+                        <span class="title" translate="Modules.System.menu_page.fields.field5"> </span> :
+                    </label>
+                    <div class="col-sm-10">
+                        <ui-select ng-model="vm.currentData.parentId" id="menu" theme="bootstrap">
+                            <ui-select-match placeholder="Select in the list...">
+                                {{$select.selected.label}}
+                            </ui-select-match>
+                            <ui-select-choices repeat="menu.id as menu in vm.allMenu | filter: $select.search">
+                                <div ng-bind-html="menu.label | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+
+
+                <div class="form-actions noborder col-sm-offset-2 col-sm-10">
+                    <button type="button" class="btn blue" ng-click="vm.simpan()" ng-disabled="vm.isClean|| formEdit.$invalid">
+                        <span class="title" translate="form.submit"> </span>
+                    </button>
+                    <button type="button" class="btn red" ng-click="vm.cancel()">
+                        <span class="title" translate="form.cancel"> </span>
+                    </button>
+                    <button ng-if="vm.isEdit" type="button" class="btn default" ng-click="vm.baru()" ng-disabled="vm.isClean">
+                        <span class="title" translate="form.reset"> </span>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>
